@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster High G1 - Be Yourself, Be Unique, Be a Monster!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Creepster, Montserrat, & Permanent Marker -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mhPink: '#E6007E',
+                        mhDarkPink: '#9E0054',
+                        mhPurple: '#8A2BE2',
+                        mhDarkPurple: '#2D0B5A',
+                        mhTeal: '#00F5D4',
+                        mhYellow: '#FFD700',
+                        mhBlack: '#0D0D0D',
+                        mhCardBg: 'rgba(20, 10, 25, 0.88)'
+                    },
+                    fontFamily: {
+                        creep: ['Creepster', 'cursive'],
+                        sans: ['Montserrat', 'sans-serif'],
+                        hand: ['Permanent Marker', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --accent-glow: #E6007E;
+        }
+
+        body {
+    background-color: #0d0d0d;
+    color: #f1f1f1;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(10, 5, 20, 0.75), rgba(10, 5, 20, 0.85)), url('images/fondo.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+        }
+
+.mascotas-badge-container {
+    text-align: center;
+    margin: 45px 0 25px 0;
+        }
+
+.mascotas-badge {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 3px solid #ff007f;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.7), 0 0 12px rgba(138, 43, 226, 0.9);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+.mascotas-badge:hover {
+    transform: scale(1.1) rotate(4deg);
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.95), 0 0 18px rgba(255, 255, 255, 0.9);      
+        }
+
+        /* Gothic Stitch Border */
+        .stitch-border {
+            border: 2px dashed #E6007E;
+            box-shadow: 0 0 10px rgba(230, 0, 126, 0.4), inset 0 0 10px rgba(230, 0, 126, 0.2);
+        }
+
+        .stitch-border-teal {
+            border: 2px dashed #00F5D4;
+            box-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
+        }
+
+        .neon-text-pink {
+            text-shadow: 0 0 5px #E6007E, 0 0 15px #E6007E, 0 0 30px #E6007E;
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 5px #8A2BE2, 0 0 15px #8A2BE2, 0 0 25px #8A2BE2;
+        }
+
+        .neon-box {
+            box-shadow: 0 0 15px rgba(230, 0, 126, 0.5), inset 0 0 15px rgba(230, 0, 126, 0.2);
+        }
+
+        /* Keyframe Animations */
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(230,0,126,0.8)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 22px rgba(138,43,226,1)); transform: scale(1.03); }
+        }
+
+        .animate-pulse-glow {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        .animate-float {
+            animation: float 4s infinite ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E6007E;
+            border-radius: 5px;
+            border: 2px solid #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8A2BE2;
+        }
+
+        /* Argyle Banner Pattern */
+        .argyle-pattern {
+            background-color: #14051a;
+            background-image: 
+                linear-gradient(135deg, rgba(230, 0, 126, 0.12) 25%, transparent 25%), 
+                linear-gradient(225deg, rgba(230, 0, 126, 0.12) 25%, transparent 25%), 
+                linear-gradient(315deg, rgba(138, 43, 226, 0.12) 25%, transparent 25%), 
+                linear-gradient(45deg, rgba(138, 43, 226, 0.12) 25%, transparent 25%);
+            background-size: 40px 40px;
+        }
+
+        /* Drag and Drop Closet Styling */
+        .draggable-item {
+            cursor: grab;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .draggable-item:active {
+            cursor: grabbing;
+            transform: scale(1.08);
+        }
+        .drop-zone {
+            transition: all 0.3s;
+        }
+        .drop-zone.drag-over {
+            border-color: #00F5D4 !important;
+            background-color: rgba(0, 245, 212, 0.15) !important;
+        }
+
+        /* Skullette SVG Icon Styling */
+        .skullette-svg {
+            fill: #E6007E;
+            filter: drop-shadow(0 0 5px rgba(230, 0, 126, 0.8));
+        }
+
+        /* Visualizer Equalizer Bar */
+        .eq-bar {
+            width: 4px;
+            background: #E6007E;
+            border-radius: 2px;
+            transition: height 0.1s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-mhPink selection:text-white">
+
+    <!-- Top Animated Announcement Bar -->
+    <div class="bg-gradient-to-r from-mhDarkPurple via-mhPink to-mhDarkPurple text-white text-xs sm:text-sm py-1.5 px-4 text-center font-bold tracking-widest uppercase stitch-border z-50">
+         <span class="inline-block animate-pulse">⚡ ¡BIENVENID@ AL ARCHIVO OFICIAL MONSTER HIGH G1 DE ANTONELLA • SOLO VIBRA CLÁSICA 2010s! ⚡</span>   </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-mhBlack/90 backdrop-blur-md border-b-2 border-mhPink px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            
+            <!-- Logo & Skullette -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="images/logo.jpg" class="h-12 sm:h-14 w-auto filter drop-shadow-[0_0_8px_rgba(230,0,126,0.8)]" alt="Monster High">  
+                               <div>
+                    <h1 class="font-creep text-2xl sm:text-3xl text-mhPink tracking-wider neon-text-pink leading-none">MONSTER HIGH G1</h1>
+                    <p class="font-hand text-xs text-mhTeal tracking-widest">G1 FOREVER</p> 
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold tracking-wide uppercase">
+                <a href="#characters" class="hover:text-mhPink transition-colors flex items-center gap-1"><i class="fa-solid fa-skull text-xs text-mhPink"></i> Personajes</a>
+                <a href="#quiz" class="hover:text-mhTeal transition-colors flex items-center gap-1"><i class="fa-solid fa-sparkles text-xs text-mhTeal"></i> ¿Qué monstruo eres? </a>
+                <a href="#movies" class="hover:text-mhPurple transition-colors flex items-center gap-1"><i class="fa-solid fa-film text-xs text-mhPurple"></i> Películas G1</a>
+                <a href="#merch" class="hover:text-mhTeal transition-colors flex items-center gap-1"><i class="fa-solid fa-box-open text-xs text-mhTeal"></i> Muñecas & Merch</a>
+            </nav>🦇
+
+            <!-- User Greeting & Music Player Bar -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Accent Switcher -->
+                <button id="themeToggleBtn" title="Cambiar Resplandor Neón" class="p-2 bg-mhDarkPurple hover:bg-mhPink rounded-full text-xs text-white border border-mhPink/50 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+
+                <!-- Audio Controller -->
+                  <audio controls src="https://ia801503.us.archive.org/15/items/monster-high-fright-song/Monster%20High%20Fright%20Song.mp3" class="h-8 w-40 rounded-full bg-mhPink/20 text-mhPink"></audio>               <button id="userProfileBtn" class="bg-mhPink hover:bg-mhDarkPink text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-md flex items-center gap-1 transition">
+                    <i class="fa-solid fa-user-ghost"></i>
+                    <span id="navUsername">Antonella Vault 🦇</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+       <section style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.85)), url('images/hero-bg.jpg'); background-size: 100% auto; background-position: center top;" class="relative py-16 px-4 overflow-hidden border-b-2 border-mhPink">     
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
+            <div class="space-y-6 text-center md:text-left">
+                <div class="inline-block bg-mhPink/20 border border-mhPink text-mhPink text-xs px-3 py-1 rounded-full uppercase font-bold tracking-widest mb-2">
+                    🦇 Archivo Oficial G1 de Antonella
+                </div>
+                <h2 class="text-4xl sm:text-6xl font-creep text-white leading-tight">
+                    Sé única. Sé tú misma. <span class="text-mhPink neon-text-pink">Sé monstruosa</span>
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base max-w-lg font-light leading-relaxed">
+                    Bienvenid@ a mi rincón Monster High. Aquí recordamos la mejor era <strong class="text-mhPink font-semibold">Monster High (G1)</strong>. con las muñecas originales, las películas icónicas y toda la vibra gótica.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
+                    <a href="#quiz" class="bg-mhPink hover:bg-mhDarkPink text-white font-bold px-6 py-3 rounded-xl border-2 border-white shadow-lg shadow-mhPink/40 transition transform hover:-translate-y-1 flex items-center gap-2">
+                        <i class="fa-solid fa-bolt"></i> Test: ¿Qué Personaje Eres?
+                    </a>
+                    <a href="#characters" class="bg-transparent hover:bg-mhPurple/30 text-mhTeal font-bold px-6 py-3 rounded-xl border-2 border-mhTeal transition flex items-center gap-2">
+                        <i class="fa-solid fa-skull"></i> Ver Personajes
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: Character Vault (G1 Old Gen) -->
+    <section id="characters" class="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl sm:text-5xl font-creep text-mhPink neon-text-pink mb-2">PERSONAJES G1</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto">Explora el anuario escolar con los estudiantes originales que marcaron época. Haz clic en cada tarjeta para descubrir sus expedientes y secretos.</p>
+            
+            <!-- Filters & Search -->
+            <div class="mt-8 flex flex-wrap gap-3 justify-center items-center">
+                <div class="relative min-w-[240px]">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-mhPink text-sm"></i>
+                    <input type="text" id="characterSearch" placeholder="Buscar monstruo o personaje..." class="w-full bg-mhBlack border border-mhPink/50 rounded-full py-2 pl-9 pr-4 text-sm text-white focus:outline-none focus:border-mhPink focus:ring-1 focus:ring-mhPink">
+                </div>
+                <button class="filter-btn active bg-mhPink text-white text-xs px-4 py-2 rounded-full font-bold uppercase tracking-wider transition" data-filter="all">Todos</button>
+                <button class="filter-btn bg-mhDarkPurple text-gray-300 hover:text-white text-xs px-4 py-2 rounded-full font-bold uppercase tracking-wider transition" data-filter="ghoul">Ghouls (Chicas)</button>
+                <button class="filter-btn bg-mhDarkPurple text-gray-300 hover:text-white text-xs px-4 py-2 rounded-full font-bold uppercase tracking-wider transition" data-filter="manster">Mansters (Chicos)</button>
+            </div>
+        </div>
+
+        <!-- Dynamic Character Grid -->
+        <div id="characterGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Characters rendered dynamically via JavaScript -->
+        </div>
+        <!-- Círculo de Mascotas en medio de los personajes y el test -->
+        <!-- Sección de Mascotas de Monster High -->
+        <div class="mascotas-badge-container flex flex-col md:flex-row items-center justify-center gap-6 my-10 max-w-2xl mx-auto p-4 bg-mhDarkPurple/40 border border-mhPink/30 rounded-2xl">
+        <img src="images/mascotas.jpg" alt="Mascotas Monster High" class="mascotas-badge shrink-0" title="¡Secret Creepers!">
+    
+    <div class="text-center md:text-left space-y-2">
+        <h3 class="font-creep text-2xl md:text-3xl text-mhPink tracking-wide">
+            🐾 MÁS QUE SIMPLES MASCOTAS...
+    </h3>
+       <p class="text-xs text-gray-300 leading-relaxed">
+    Desde los pasillos de la escuela hasta las catacumbas, cada estudiante guarda sus secretos más oscuros junto a su fiel y cómplice animalito. <strong class="text-mhTeal">¡Estas son las criaturas</strong> que le dan vida a <strong class="text-mhPink">Monster High!</strong>
+</p>
+</div>
+</div>
+</section>
+
+<!-- SECTION 2: Quiz Section -->
+<section id="quiz" class="py-16 px-4 bg-mhBlack/80 border-y-2 border-mhPurple relative overflow-hidden">
+    </section>
+
+    <!-- SECTION 2: Quiz Section -->
+    <section id="quiz" class="py-16 px-4 bg-mhBlack/80 border-y-2 border-mhPurple relative overflow-hidden">
+        <div class="max-w-3xl mx-auto bg-mhCardBg border-2 border-mhPink rounded-2xl p-6 sm:p-10 stitch-border shadow-2xl relative z-10">
+            
+            <div class="text-center mb-8">
+                <span class="text-mhTeal text-xs font-bold tracking-widest uppercase bg-mhTeal/10 border border-mhTeal/30 px-3 py-1 rounded-full">Test Oficial de Personalidad G1</span>
+                <h2 class="text-3xl sm:text-4xl font-creep text-mhPink neon-text-pink mt-2">¿QUÉ MONSTRUO DE MONSTER HIGH ERES?</h2>
+                <p class="text-gray-300 text-xs sm:text-sm mt-1">"Descubre al estudiante de la vieja escuela que vive en ti."</p>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer">
+                <div id="quizQuestionBox" class="space-y-6">
+                    <!-- Dynamic Question Header -->
+                    <div class="flex justify-between items-center border-b border-mhPink/30 pb-3">
+                        <span id="quizProgress" class="text-xs font-mono text-mhTeal">Pregunta 1 de 5</span>
+                        <div class="w-24 bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="quizProgressBar" class="bg-mhPink h-full w-1/5 transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h3 id="quizQuestionTitle" class="text-lg sm:text-xl font-bold text-white">Cargando pregunta...</h3>
+
+                    <!-- Options Grid -->
+                    <div id="quizOptions" class="grid grid-cols-1 gap-3">
+                        <!-- Dynamic Options Buttons -->
+                    </div>
+                </div>
+
+                <!-- Quiz Result State (Hidden initially) -->
+                <div id="quizResultBox" class="hidden text-center space-y-6 py-4">
+                    <div class="w-32 h-32 mx-auto rounded-full border-4 border-mhPink p-1 overflow-hidden shadow-xl shadow-mhPink/50">
+                        <img id="resultImage" src="" alt="Ghoul Result" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <div>
+                        <span class="text-mhTeal text-xs font-bold uppercase tracking-widest">¡Tu Monstruo Interior Es!</span>
+                        <h3 id="resultName" class="text-3xl font-creep text-mhPink neon-text-pink">Nombre del Personaje</h3>
+                        <p id="resultDesc" class="text-gray-300 text-xs sm:text-sm max-w-md mx-auto mt-2 leading-relaxed">Descripción del personaje...</p>
+                    </div>
+
+                    <div class="bg-mhDarkPurple/50 p-4 rounded-xl border border-mhPink/30 text-left max-w-md mx-auto space-y-2">
+                        <p class="text-xs text-mhTeal font-bold"><i class="fa-solid fa-sparkles"></i> Tu lema de estilo:</p>
+                        <p id="resultMotto" class="text-xs italic text-gray-200 font-hand">"Be yourself, stay unique!"</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <button id="restartQuizBtn" class="bg-mhDarkPurple hover:bg-mhPurple text-white text-xs font-bold px-5 py-2.5 rounded-xl border border-mhPurple transition">
+                            <i class="fa-solid fa-rotate-left"></i> Repetir Test
+                        </button>
+                        <button id="shareResultBtn" class="bg-mhPink hover:bg-mhDarkPink text-white text-xs font-bold px-5 py-2.5 rounded-xl border border-white transition">
+                            <i class="fa-solid fa-copy"></i> Copiar Resultado
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Movie Nostalgia Guide -->
+    <section id="movies" class="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl sm:text-5xl font-creep text-mhTeal neon-text-purple mb-2">PELÍCULAS CLÁSICAS G1</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto">Revive los especiales animados y largometrajes que definieron la era 2010 - 2015.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Movie 1 -->
+        <div class="bg-mhCardBg border border-mhPink/40 rounded-xl overflow-hidden hover:border-mhPink transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-96 overflow-hidden bg-black/30">
+              <img src="images/fright_on.jpg" alt="Fright On!" class="w-full h-full object-contain group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-mhPink text-white text-[10px] font-bold px-2 py-1 rounded">2011</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-mhPink font-creep">Monster High: Fright On!</h3>
+              <p class="text-gray-300 text-xs mt-2 leading-relaxed">
+                La llegada de vampiros y hombres lobo a Monster High pone a prueba la amistad de las ghouls frente a una antigua rivalidad.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <a href="https://www.youtube.com/watch?v=ksyeSKXUrWM&list=PLL2akYR2xw97i2Eh0VK1YdoodNJ15V0CT" target="_blank" rel="noopener noreferrer" class="block text-center bg-mhDarkPurple hover:bg-mhPink text-white text-xs font-bold py-2 rounded-lg transition border border-mhPink/40">
+              <i class="fa-brands fa-youtube text-red-500 mr-1"></i> Ver Tráiler / Info
+            </a>
+          </div>
+        </div>           
+
+         <!-- Movie 2 -->
+          <div class="bg-mhCardBg border border-mhPink/40 rounded-xl overflow-hidden hover:border-mhPink transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-96 overflow-hidden bg-black/30">
+              <img src="images/ghouls_rule.jpg" alt="Ghouls Rule" class="w-full h-full object-contain group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-mhPink text-white text-[10px] font-bold px-2 py-1 rounded">2012</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-mhPink font-creep">Monster High: Ghouls Rule</h3>
+              <p class="text-gray-300 text-xs mt-2 leading-relaxed">
+                Un misterio de Halloween revela el antiguo conflicto entre humanos y monstruos. ¡La verdad saldrá a la luz!
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <a href="https://www.youtube.com/watch?v=rp8qjOMGw7o&list=PLPlFZh_SUZ-SRBs6zM82w0yvi9VKIlArA" target="_blank" rel="noopener noreferrer" class="block text-center bg-mhDarkPurple hover:bg-mhPink text-white text-xs font-bold py-2 rounded-lg transition border border-mhPink/40">
+              <i class="fa-brands fa-youtube text-red-500 mr-1"></i> Ver Tráiler / Info
+            </a>
+          </div>
+        </div>
+
+            <!-- Movie 3 -->
+            <div class="bg-mhCardBg border border-mhPink/40 rounded-xl overflow-hidden hover:border-mhPink transition-all duration-300 group flex flex-col justify-between">
+          <div>
+            <div class="relative h-96 overflow-hidden bg-black/30">
+              <img src="images/13_wishes.jpg" alt="13 Wishes" class="w-full h-full object-contain group-hover:scale-105 transition duration-500">
+              <span class="absolute top-3 right-3 bg-mhPink text-white text-[10px] font-bold px-2 py-1 rounded">2013</span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-bold text-mhPink font-creep">Monster High: 13 Wishes</h3>
+              <p class="text-gray-300 text-xs mt-2 leading-relaxed">
+                Howleen Wolf encuentra una lámpara mágica con una genio sombría, desencadenando deseos con peligrosos efectos secundarios.
+              </p>
+            </div>
+          </div>
+          <div class="px-5 pb-5">
+            <a href="https://www.youtube.com/watch?v=aG9okUEpNKQ&list=PLPlFZh_SUZ-QOU4neitMMNmmbReULoUF8" target="_blank" rel="noopener noreferrer" class="block text-center bg-mhDarkPurple hover:bg-mhPink text-white text-xs font-bold py-2 rounded-lg transition border border-mhPink/40">
+              <i class="fa-brands fa-youtube text-red-500 mr-1"></i> Ver Tráiler / Info
+            </a>
+          </div>
+        </div>   
+      </section>
+
+    <!-- SECTION 4: Merch, Vintage Dolls & Halloween Costumes -->
+    <section id="merch" class="py-16 px-4 max-w-7xl mx-auto w-full">
+        <div class="text-center mb-10">
+            <h2 class="text-4xl sm:text-5xl font-creep text-mhPink neon-text-pink mb-2">LÍNEAS DE MUÑECAS & MERCH G1</h2>
+            <p class="text-gray-400 text-sm max-w-xl mx-auto">Las oleadas legendarias de muñecas de colección (First Wave, Dawn of the Dance, Sweet 1600 y disfraces clásicos).</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Line 1 -->
+            <div class="bg-mhCardBg p-4 rounded-xl border border-mhPink/40 hover:border-mhPink transition flex flex-col justify-between">
+                <div>
+                       <img src="images/primera_edición.jpg" alt="Primera Edición 2010" class="w-full h-80 object-contain bg-black/40 rounded-lg border border-mhPink/30 mb-3 filter contrast-125 p-2">                 
+                    <span class="text-[10px] font-bold text-mhTeal uppercase bg-mhTeal/10 px-2 py-0.5 rounded">Edición 2010</span>
+                     <h3 class="font-bold text-white text-base mt-1">Colección Original (2010)</h3>
+<p class="text-gray-400 text-xs mt-1">Las muñecas clásicas con las que nació la saga, luciendo sus outfits escolares más icónicos y sus mascotas. 💀🩷 </p>               
+</div>
+                 <button onclick="showMerchModal('Primera Edición 2010', '¡La colección con la que comenzó la leyenda gótica en 2010! Presenta a las ghouls originales —Frankie, Draculaura, Clawdeen, Lagoona y Cleo— luciendo sus outfits escolares icónicos, diarios secretos y mascotas. ¡Piezas de colección fundamentales! 🦇✨')" class="mt-4 w-full bg-mhDarkPurple hover:bg-mhPink text-white text-xs py-2 rounded-lg transition border border-mhPink/50">                   <i class="fa-solid fa-eye"></i> Detalle de la Línea
+                </button>
+            </div>
+
+            <!-- Line 2 -->
+            <div class="bg-mhCardBg p-4 rounded-xl border border-mhPink/40 hover:border-mhPink transition flex flex-col justify-between">
+                <div>
+                     <img src="images/dawn_of_the_dance.jpg" alt="Dawn of the Dance" class="w-full h-80 object-contain bg-black/40 rounded-lg border border-mhPink/30 mb-3 filter contrast-125 p-2">                 
+  <span class="text-[10px] font-bold text-mhPink uppercase bg-mhPink/10 px-2 py-0.5 rounded">Colección Fiesta</span>
+                    <h3 class="font-bold text-white text-base mt-1">Dawn of the Dance</h3>
+                      <p class="text-gray-400 text-xs mt-1">Peinados alocados de neón, vestidos de fiesta atrevidos y todo el drama del baile escolar. 🪩💃</p>              
+                  </div>
+                 <button onclick="showMerchModal('DAWN OF THE DANCE 🪩', '¡La fiesta del año! ✨ Una de las líneas de baile más icónicas de Monster High. Destaca por sus peinados súper extravagantes de neón, maquillajes recargados y vestidos de gala nocturnos. ¡Puro estilo monstruoso para dominar la pista de baile!')" class="mt-4 w-full bg-mhDarkPurple hover:bg-mhPink text-white text-xs py-2 rounded-lg transition border border-mhPink/50">
+    <i class="fa-solid fa-eye"></i> Detalle de la Línea
+</button>          
+ </div>
+
+            <!-- Line 3 -->
+            <div class="bg-mhCardBg p-4 rounded-xl border border-mhPink/40 hover:border-mhPink transition flex flex-col justify-between">
+    <div>
+        <img src="images/sweet_1600.jpg" alt="Sweet 1600" class="w-full h-80 object-contain bg-black/40 rounded-lg border border-mhPink/30 mb-3 filter contrast-125 p-2">
+        <span class="text-[10px] font-bold text-mhPink uppercase bg-mhPink/10 px-2 py-0.5 rounded">Especial Cumpleaños</span>
+        <h3 class="font-bold text-white text-base mt-1">Sweet 1600</h3>
+        <p class="text-gray-400 text-xs mt-1">Celebrando los 1600 años de Draculaura con vestidos de gala victorianos y accesorios de lujo. 🖤🎂👑</p>
+    </div>
+    <button onclick="showMerchModal('SWEET 1600 👑🖤', '¡La fiesta del siglo! 🎉 Draculaura celebra sus 1600 años con una línea súper glamurosa. Vestidos victorianos de encaje, tiaras de encanto, llaves especiales y una estética rosa-negro icónica. ¡Una de las colecciones más buscadas por coleccionistas!')" class="mt-4 w-full bg-mhDarkPurple hover:bg-mhPink text-white text-xs py-2 rounded-lg transition border border-mhPink/50">
+        <i class="fa-solid fa-eye"></i> Detalle de la Línea
+    </button>
+</div>
+           
+           <!-- Line 4 -->
+              <div class="bg-mhCardBg p-4 rounded-xl border border-mhPink/40 hover:border-mhPink transition flex flex-col justify-between">
+    <div>
+        <img src="images/disfraces_g1.jpg" alt="Disfraces de Halloween G1" class="w-full h-80 object-contain bg-black/40 rounded-lg border border-mhPink/30 mb-3 filter contrast-125 p-2">
+        <span class="text-[10px] font-bold text-mhYellow uppercase bg-mhYellow/10 px-2 py-0.5 rounded">Fenómeno Pop</span>
+        <h3 class="font-bold text-white text-base mt-1">Disfraces & Moda G1</h3>
+        <p class="text-gray-400 text-xs mt-1">¡El furor monstruoso llegó a la vida real! La fiebre de la franquicia dominó Halloween con cosplays y disfraces icónicos. 🎃💀✨</p>
+    </div>
+    <button onclick="showMerchModal('DISFRACES & FENÓMENO POP 🎃', '¡De la repisa a la vida real! 🎃⚡ La popularidad de Monster High fue tan masiva que trascendió las muñecas: los disfraces oficiales, pelucas de colores y cosplays convirtieron a las ghouls en el disfraz definitivo de Halloween en todo el mundo.')" class="mt-4 w-full bg-mhDarkPurple hover:bg-mhPink text-white text-xs py-2 rounded-lg transition border border-mhPink/50">
+        <i class="fa-solid fa-eye"></i> Detalle de la Línea
+    </button>
+</div>      
+</div>
+    </section>
+
+    <!-- Character Profile Detail Modal -->
+    <div id="charModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-mhCardBg border-2 border-mhPink rounded-2xl max-w-2xl w-full p-6 relative stitch-border shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button id="closeCharModal" class="absolute top-4 right-4 text-gray-400 hover:text-mhPink text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="rounded-xl overflow-hidden border-2 border-mhPink h-72">
+                    <img id="modalImg" src="" alt="" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-3">
+                    <span id="modalMonsterType" class="text-xs font-bold text-mhTeal uppercase tracking-widest bg-mhTeal/10 px-2.5 py-1 rounded-full border border-mhTeal/30">Tipo de Monstruo</span>
+                    <h3 id="modalName" class="text-3xl font-creep text-mhPink neon-text-pink">Nombre</h3>
+                    <p id="modalBio" class="text-xs text-gray-300 leading-relaxed"></p>
+                    
+                    <div class="space-y-1.5 text-xs pt-2 border-t border-mhPink/30">
+                        <p><strong class="text-mhPink">Defecto Estrafalario:</strong> <span id="modalFlaw" class="text-gray-300"></span></p>
+                        <p><strong class="text-mhTeal">Mascota:</strong> <span id="modalPet" class="text-gray-300"></span></p>
+                        <p><strong class="text-mhPurple">Estilo Matador:</strong> <span id="modalStyle" class="text-gray-300"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generic Merch Detail Modal -->
+    <div id="merchModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-mhCardBg border-2 border-mhTeal rounded-2xl max-w-md w-full p-6 relative stitch-border-teal shadow-2xl">
+            <button id="closeMerchModal" class="absolute top-4 right-4 text-gray-400 hover:text-mhTeal text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="merchModalTitle" class="text-2xl font-creep text-mhTeal mb-3">Título</h3>
+            <p id="merchModalDesc" class="text-xs text-gray-300 leading-relaxed mb-4"></p>
+            <button id="okMerchModal" class="w-full bg-mhTeal text-mhBlack font-bold text-xs py-2 rounded-lg hover:bg-white transition">Entendido</button>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div id="userModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-mhCardBg border-2 border-mhPink rounded-2xl max-w-md w-full p-6 relative stitch-border shadow-2xl">
+            <button id="closeUserModal" class="absolute top-4 right-4 text-gray-400 hover:text-mhPink text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-2xl font-creep text-mhPink mb-2">PERFIL DE GHOUL</h3>
+            <p class="text-xs text-gray-400 mb-4">Personaliza tu apodo escolar de Monster High:</p>
+            
+            <form id="userForm" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-mhTeal font-bold mb-1">Tu Nombre / Apodo Monstruoso:</label>
+                    <input type="text" id="usernameInput" required placeholder="Ej: ClawdeenFan99" class="w-full bg-mhBlack border border-mhPink/50 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-mhPink">
+                </div>
+                <button type="submit" class="w-full bg-mhPink hover:bg-mhDarkPink text-white font-bold text-xs py-2.5 rounded-lg transition">Guardar Perfil</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="bg-mhBlack border-t-2 border-mhPink py-8 px-4 text-center text-xs text-gray-400 stitch-border mt-12">
+        <div class="max-w-6xl mx-auto space-y-4">
+            <div class="flex justify-center items-center gap-2">
+                <span class="font-creep text-2xl text-mhPink">MONSTER HIGH G1 VAULT</span>
+            </div>
+            <p class="max-w-md mx-auto text-[11px] text-gray-500">
+                Página tributo fan-made dedicada a la era clásica original de Monster High (2010-2015). "Be Yourself, Be Unique, Be a Monster!"
+            </p>
+            <div class="flex justify-center gap-4 text-base text-mhPink">
+                <i class="fa-solid fa-skull"></i>
+                <i class="fa-solid fa-bolt"></i>
+                <i class="fa-solid fa-heart text-mhPink"></i>
+                <i class="fa-solid fa-moon"></i>
+            </div>
+            <p class="text-[10px] text-gray-600">Creado para fanáticos de la Vieja Escuela de Monster High • 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // G1 Core Characters Database
+        const charactersG1 = [
+            {
+        id: 'frankie',
+        name: 'Frankie Stein',
+        type: 'ghoul',
+        monsterType: 'Hija de Frankenstein',
+        bio: 'Con solo unos días de edad, Frankie es una novata llena de energía electrizante y curiosidad. Aunque todo en Monster High es nuevo para ella, compensa su inexperiencia con un optimismo arrollador y un estilo de muerte.',
+        flaw: '¡A veces se me sueltan las costuras en el peor momento! Mi brazo puede salir volando en pleno ensayo.',
+        pet: 'Watzit (un perrito cosido con un pedigrí de mil páginas).',
+        style: 'Estampados escoceses, corbatas góticas y detalles de rayos a alto voltaje.',
+        img:   'images/Frankie.jpg'
+            },
+            {
+                id: 'draculaura',
+        name: 'Draculaura',
+        type: 'ghoul',
+        monsterType: 'Hija del Conde Drácula',
+        bio: 'Con 1599 años (¡A punto de cumplir los 1600!), Draculaura es la vampira más dulce e idealista de la escuela. Es vegana y le tiene pavor a la sangre, pero compensa su lado dramático con una energía contagiosa y muchísimo rosa.',
+        flaw: '¡No puedo ver mi reflejo en el espejo! Salgo a la calle confiando en mi instinto y en mis amigas para saber si mi outfit está impecable.',
+        pet: 'Count Fabulous, un murciélago súper orgulloso al que adora vestir con lazos rosas combinados.',
+        style: 'Gótico lolita victoriano (rosa neón con negro azabache, encajes elegantes, sombrillas y botas altas).',
+        img: 'images/Draculaura.jpg'            },
+            {
+                  id: 'clawdeen',
+        name: 'Clawdeen Wolf',
+        type: 'ghoul',
+        monsterType: 'Hija del Hombre Lobo',
+        bio: 'Segura de sí misma, audaz y ferozmente leal, Clawdeen es una diseñadora de moda nata. Cuando no está creando tendencias para sus amigas, está defendiendo a su manada con garras y dientes.',
+        flaw: '¡El vello corporal me crece a una velocidad monstruosa cuando hay luna llena! Pasar horas depilándose es el precio de lucir divina.',
+        pet: 'Crescent, un gatito persa tan tierno como feroz. Es tan chic como ella y siempre está listo para acurrucarse.',
+        style: 'Feroz chic (estampados de leopardo, toques de morado y dorado, peluche sintético y taconazos de infarto).',
+        img: 'images/Clawdeen Wolf.jpg'          },
+            {
+                id: 'lagoona',
+        name: 'Lagoona Blue',
+        type: 'ghoul',
+        monsterType: 'Hija del Monstruo Marino',
+        bio: 'Proveniente del Gran Arrecife de Coral, Lagoona es relajada, deportista y empática. Le apasiona cuidar los océanos y nadar a toda velocidad, siempre lista para apoyar a sus amigas.',
+        flaw: '¡Mi piel se seca si paso mucho tiempo fuera del agua! Necesito litros de crema hidratante o un buen chapuzón en la piscina.',
+        pet: 'Neptuna, una piraña rosa súper feroz que le acompaña a todas partes en su bolso-pecera.',
+        style: 'Surfer chic marino (shorts cómodos, tops con escamas, accesorios de conchas y destellos turquesa).',
+        img: 'images/Lagoona Blue.jpg'
+            },
+            {
+                id: 'cleo',
+        name: 'Cleo de Nile',
+        type: 'ghoul',
+        monsterType: 'Hija de la Momia',
+        bio: 'Como auténtica realeza egipcia, Cleo es la capitana de las asustadoras y la reina de Monster High. Aunque exigente y sofisticada, protege a sus verdaderas amigas con la fuerza de un imperio.',
+        flaw: '¡Le tengo absoluto pavor a la oscuridad! Una momia le teme a las tinieblas... Jamás me verás en un lugar oscuro sin mis joyas brillantes.',
+        pet: 'Hissette, una cobra egipcia dorada y elegante que luce tan divina como su dueña.',
+        style: 'Realeza egipcia chic (vendas en dorado y turquesa, joyas de oro macizo y un delineado egipcio impecable).',
+        img: 'images/Cleo de Nile.jpg'            },
+            {
+                id: 'ghoulia',
+        name: 'Ghoulia Yelps',
+        type: 'ghoul',
+        monsterType: 'Hija de los Zombis',
+        bio: 'La estudiante más brillante de la escuela. Es reservada, amante de los cómics y la tecnología. Aunque solo habla en gemidos zombis, su intelecto y astucia siempre salvan el día.',
+        flaw: 'Camino a paso de tortuga, me cuesta cambiar de postura y mis expresiones son muy lentas. ¡Cosas típicas de mi naturaleza zombi!',
+        pet: 'Sir Hoots a Lot, un búho nival súper inteligente que le ayuda con sus notas e investigaciones.',
+        style: 'Geek chic retro (gafas de ojo de gato blancas, detalles de cerebros, tonos cereza y mucho estilo vintage).',
+        img: 'images/Ghoulia Yelps.jpg'
+            },
+            {
+                id: 'abbey',
+        name: 'Abbey Bominable',
+        type: 'ghoul',
+        monsterType: 'Hija del Yeti',
+        bio: 'Proveniente de las cumbres del Himalaya, Abbey es una Yeti fuerte, sincera y muy directa. No pierde tiempo con rodeos, pero su lealtad por sus amigas es tan sólida como el hielo.',
+        flaw: 'Suelo congelar cosas cuando algo me emociona o me enoja, y carezco de tacto social. En las montañas no se usan indirectas, así que a veces se malinterpretan.',
+        pet: 'Shiver, una adorable cría de mamut lanudo a la que le fascina acurrucarse en la nieve con ella.',
+        style: 'Glacial chic (abrigos de peluche blanco, estampados de hielo en turquesa y rosa, y su infaltable collar de copo de nieve).',
+        img: 'images/Abbey Bominable.jpg'
+            },
+            {
+                id: 'deuce',
+        name: 'Deuce Gorgon',
+        type: 'manster',
+        monsterType: 'Hijo de Medusa',
+        bio: 'Popular, seguro y muy relajado, Deuce adora el patinaje y la alta cocina. Es el novio dedicado de Cleo de Nile y el manster en quien todos sus amigos pueden confiar.',
+        flaw: '¡Debo de llevar mis gafas de sol todo el tiempo! Si miro a alguien directamente a los ojos, lo convierto en piedra durante un par de días.',
+        pet: 'Perseus, una rata de dos colas con mucha actitud que bautizó en honor a un antiguo héroe griego.',
+        style: 'Skater urbano (gafas oscuras, chaleco de cuero, zapatillas altas, detalles en verde neón y peinado de serpientes en mohicano).',
+        img: 'images/Deuce Gorgon.jpg'            
+        }
+        ];
+
+        // Quiz Questions Data
+const quizQuestions = [
+  {
+    q: "1. ¿Cuál es tu plan ideal para un fin de semana libre?",
+    options: [
+      { text: "Salir a explorar lugares nuevos y conocer gente", char: "frankie" },
+      { text: "Organizar una reunión tranquila con mis mejores amigas", char: "draculaura" },
+      { text: "Trabajar en mis proyectos creativos o salir de compras", char: "clawdeen" },
+      { text: "Hacer deporte al aire libre o relajarme en la naturaleza", char: "lagoona" }
+    ]
+  },
+  {
+    q: "2. ¿Cómo reaccionas cuando las cosas no salen como esperabas?",
+    options: [
+      { text: "Asumo el liderazgo de inmediato y reorganizo la situación", char: "cleo" },
+      { text: "Analizo la situación con calma antes de dar mi siguiente paso", char: "ghoulia" },
+      { text: "Digo las cosas de frente y sin rodeos para resolverlo rápido", char: "abbey" },
+      { text: "Mantengo la calma, escucho música y evito meterme en dramas", char: "deuce" }
+    ]
+  },
+  {
+    q: "3. ¿Qué cualidad valoras más en tus amigos?",
+    options: [
+      { text: "La lealtad incondicional y que siempre estén en las buenas y en las malas", char: "clawdeen" },
+      { text: "La empatía y la capacidad de escuchar sin juzgar", char: "lagoona" },
+      { text: "La energía positiva, el entusiasmo y las ganas de aprender", char: "frankie" },
+      { text: "La honestidad directa y la tranquilidad", char: "abbey" }
+    ]
+  },
+  {
+    q: "4. En un trabajo en grupo, ¿cuál es tu rol natural?",
+    options: [
+      { text: "Asegurarme de que todo quede impecable y con el mejor nivel", char: "cleo" },
+      { text: "Investigar a fondo, armar la estructura y resolver la parte lógica", char: "ghoulia" },
+      { text: "Coordinar los detalles y animar al equipo para que nadie se estrese", char: "draculaura" },
+      { text: "Aportar ideas prácticas y apoyar en lo que haga falta en silencio", char: "deuce" }
+    ]
+  },
+  {
+    q: "5. ¿Cómo defines tu filosofía personal ante la vida?",
+    options: [
+      { text: "Siempre hay que dar el 100% y destacar en lo que te apasione", char: "clawdeen" },
+      { text: "El respeto, la amabilidad y la paz interior lo son todo", char: "lagoona" },
+      { text: "Cometer errores es parte de aprender y mejorar cada día", char: "frankie" },
+      { text: "Las reglas claras y la verdad valen más que las apariencias", char: "abbey" }
+    ]
+  }
+];
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+        });
+
+        function initApp() {
+            renderCharacters(charactersG1);
+            setupSearchAndFilters();
+            setupQuiz();
+            setupClosetDragAndDrop();
+            setupUserProfile();
+            setupAudioSynth();
+            setupThemeToggle();
+        }
+
+        // Render Character Cards into Grid
+        function renderCharacters(list) {
+            const grid = document.getElementById('characterGrid');
+            grid.innerHTML = '';
+
+            if (list.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-gray-500 font-hand">No se encontraron monstruos con esa búsqueda...</div>`;
+                return;
+            }
+
+            list.forEach(char => {
+                const card = document.createElement('div');
+                card.className = "bg-mhCardBg border border-mhPink/40 rounded-xl overflow-hidden hover:border-mhPink hover:shadow-xl hover:shadow-mhPink/20 transition-all duration-300 group flex flex-col justify-between";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-60 overflow-hidden">
+                            <img src="${char.img}" alt="${char.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter contrast-110">
+                            <span class="absolute top-3 left-3 bg-mhBlack/80 text-mhTeal border border-mhTeal/50 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">
+                                ${char.monsterType}
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-2xl font-bold font-creep text-mhPink group-hover:text-white transition">${char.name}</h3>
+                            <p class="text-gray-300 text-xs mt-2 line-clamp-3 leading-relaxed">${char.bio}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openCharModal('${char.id}')" class="w-full bg-mhDarkPurple hover:bg-mhPink text-white font-bold text-xs py-2.5 rounded-lg border border-mhPink/50 transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-address-card"></i> Expediente Monstruoso
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Search & Filter Logic
+        function setupSearchAndFilters() {
+            const searchInput = document.getElementById('characterSearch');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            let currentFilter = 'all';
+            let currentQuery = '';
+
+            function applyFilters() {
+                let filtered = charactersG1.filter(c => {
+                    const matchesSearch = c.name.toLowerCase().includes(currentQuery) ||
+                                          c.monsterType.toLowerCase().includes(currentQuery) ||
+                                          c.style.toLowerCase().includes(currentQuery);
+                    
+                    const matchesType = (currentFilter === 'all') || (c.type === currentFilter);
+                    return matchesSearch && matchesType;
+                });
+                renderCharacters(filtered);
+            }
+
+            searchInput.addEventListener('input', (e) => {
+                currentQuery = e.target.value.toLowerCase().trim();
+                applyFilters();
+            });
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-mhPink', 'text-white');
+                        b.classList.add('bg-mhDarkPurple', 'text-gray-300');
+                    });
+                    btn.classList.add('active', 'bg-mhPink', 'text-white');
+                    btn.classList.remove('bg-mhDarkPurple', 'text-gray-300');
+
+                    currentFilter = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+        }
+
+        // Modal for Character Details
+        function openCharModal(id) {
+            const char = charactersG1.find(c => c.id === id);
+            if (!char) return;
+
+            document.getElementById('modalImg').src = char.img;
+            document.getElementById('modalName').textContent = char.name;
+            document.getElementById('modalMonsterType').textContent = char.monsterType;
+            document.getElementById('modalBio').textContent = char.bio;
+            document.getElementById('modalFlaw').textContent = char.flaw;
+            document.getElementById('modalPet').textContent = char.pet;
+            document.getElementById('modalStyle').textContent = char.style;
+
+            document.getElementById('charModal').classList.remove('hidden');
+        }
+
+        document.getElementById('closeCharModal').addEventListener('click', () => {
+            document.getElementById('charModal').classList.add('hidden');
+        });
+
+        // Merch Modal Logic
+        function showMerchModal(title, desc) {
+            document.getElementById('merchModalTitle').textContent = title;
+            document.getElementById('merchModalDesc').textContent = desc;
+            document.getElementById('merchModal').classList.remove('hidden');
+        }
+
+        document.getElementById('closeMerchModal').addEventListener('click', () => {
+            document.getElementById('merchModal').classList.add('hidden');
+        });
+        document.getElementById('okMerchModal').addEventListener('click', () => {
+            document.getElementById('merchModal').classList.add('hidden');
+        });
+
+        // Quiz Implementation
+        let currentQuestionIdx = 0;
+        let quizScores = {};
+
+        function setupQuiz() {
+            renderQuizQuestion();
+
+            document.getElementById('restartQuizBtn').addEventListener('click', () => {
+                currentQuestionIdx = 0;
+                quizScores = {};
+                document.getElementById('quizQuestionBox').classList.remove('hidden');
+                document.getElementById('quizResultBox').classList.add('hidden');
+                renderQuizQuestion();
+            });
+
+            document.getElementById('shareResultBtn').addEventListener('click', () => {
+                const charName = document.getElementById('resultName').textContent;
+                const shareText = `¡Hice el test de Monster High G1 y mi personaje es ${charName}! ⚡ Be Yourself, Be Unique!`;
+                
+                // Copy to Clipboard fallback
+                const tempInput = document.createElement('textarea');
+                tempInput.value = shareText;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                alert('¡Resultado copiado al portapapeles!');
+            });
+        }
+
+        function renderQuizQuestion() {
+            const qData = quizQuestions[currentQuestionIdx];
+            document.getElementById('quizProgress').textContent = `Pregunta ${currentQuestionIdx + 1} de ${quizQuestions.length}`;
+            document.getElementById('quizProgressBar').style.width = `${((currentQuestionIdx + 1) / quizQuestions.length) * 100}%`;
+            document.getElementById('quizQuestionTitle').textContent = qData.q;
+
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+
+            qData.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left bg-mhBlack hover:bg-mhPink/20 hover:border-mhPink border border-mhPink/30 rounded-xl p-3.5 text-xs sm:text-sm text-gray-200 transition duration-200 flex items-center justify-between group";
+                btn.innerHTML = `
+                    <span>${opt.text}</span>
+                    <i class="fa-solid fa-chevron-right text-mhPink opacity-0 group-hover:opacity-100 transition"></i>
+                `;
+                btn.addEventListener('click', () => selectQuizOption(opt.char));
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectQuizOption(charKey) {
+            quizScores[charKey] = (quizScores[charKey] || 0) + 1;
+            currentQuestionIdx++;
+
+            if (currentQuestionIdx < quizQuestions.length) {
+                renderQuizQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quizQuestionBox').classList.add('hidden');
+            document.getElementById('quizResultBox').classList.remove('hidden');
+
+            // Find top scored character
+            let topCharKey = 'frankie';
+            let maxScore = -1;
+            for (const key in quizScores) {
+                if (quizScores[key] > maxScore) {
+                    maxScore = quizScores[key];
+                    topCharKey = key;
+                }
+            }
+
+            const matchedChar = charactersG1.find(c => c.id === topCharKey) || charactersG1[0];
+
+            document.getElementById('resultImage').src = matchedChar.img;
+            document.getElementById('resultName').textContent = matchedChar.name;
+            document.getElementById('resultDesc').textContent = matchedChar.bio;
+            document.getElementById('resultMotto').textContent = `"${matchedChar.flaw}"`;
+
+            // Save to LocalStorage
+            localStorage.setItem('mh_quiz_result', matchedChar.name);
+        }
+
+        function setupClosetDragAndDrop() {
+            const draggables = document.querySelectorAll('.draggable-item');
+            const dropZone = document.getElementById('dropZone');
+            const equippedItems = document.getElementById('equippedItems');
+            const equippedList = document.getElementById('equippedList');
+            const clearBtn = document.getElementById('clearClosetBtn');
+
+            let currentOutfit = [];
+
+            draggables.forEach(item => {
+                item.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', item.dataset.item);
+                });
+            });
+
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drag-over');
+            });
+
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('drag-over');
+            });
+
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('drag-over');
+                const itemType = e.dataTransfer.getData('text/plain');
+
+                if (itemType && !currentOutfit.includes(itemType)) {
+                    currentOutfit.push(itemType);
+                    updateClosetDisplay();
+                }
+            });
+
+            clearBtn.addEventListener('click', () => {
+                currentOutfit = [];
+                updateClosetDisplay();
+            });
+
+            function updateClosetDisplay() {
+                equippedItems.innerHTML = '';
+                equippedList.innerHTML = '';
+
+                if (currentOutfit.length === 0) {
+                    equippedList.innerHTML = '<li class="italic text-gray-500">Ningún accesorio equipado aún.</li>';
+                    return;
+                }
+
+                currentOutfit.forEach(item => {
+                    let icon = '✨';
+                    if (item === 'moño') icon = '🎀';
+                    if (item === 'rayo') icon = '⚡';
+                    if (item === 'luna') icon = '🌙';
+                    if (item === 'calavera') icon = '💀';
+                    if (item === 'burbuja') icon = '🫧';
+                    if (item === 'corona') icon = '👑';
+
+                    const badge = document.createElement('span');
+                    badge.className = "text-2xl animate-bounce";
+                    badge.textContent = icon;
+                    equippedItems.appendChild(badge);
+
+                    const li = document.createElement('li');
+                    li.textContent = `${icon} Accessory: ${item.toUpperCase()}`;
+                    equippedList.appendChild(li);
+                });
+            }
+        }
+
+        function setupUserProfile() {
+            const savedName = localStorage.getItem('mh_username');
+            if (savedName) {
+                document.getElementById('navUsername').textContent = savedName;
+            }
+
+            document.getElementById('userProfileBtn').addEventListener('click', () => {
+                document.getElementById('userModal').classList.remove('hidden');
+            });
+            document.getElementById('closeUserModal').addEventListener('click', () => {
+                document.getElementById('userModal').classList.add('hidden');
+            });
+
+            document.getElementById('userForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('usernameInput').value.trim();
+                if (name) {
+                    localStorage.setItem('mh_username', name);
+                    document.getElementById('navUsername').textContent = name;
+                    document.getElementById('userModal').classList.add('hidden');
+                }
+            });
+        }
+
+        function setupAudioSynth() {
+            let audioCtx = null;
+            let isPlaying = false;
+            let timerId = null;
+
+            const playBtn = document.getElementById('audioPlayBtn');
+            const icon = document.getElementById('audioIcon');
+            const eqBars = document.querySelectorAll('.eq-bar');
+
+            function createSynthBeat() {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+
+                // Simple G1 synth melody pattern
+                const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63];
+                let noteIdx = 0;
+
+                timerId = setInterval(() => {
+                    if (!isPlaying) return;
+
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(notes[noteIdx], audioCtx.currentTime);
+
+                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.22);
+
+                    noteIdx = (noteIdx + 1) % notes.length;
+
+                    // Animate Equalizer Bars
+                    eqBars.forEach(bar => {
+                        const randomHeight = Math.floor(Math.random() * 14) + 3;
+                        bar.style.height = `${randomHeight}px`;
+                    });
+                }, 250);
+            }
+
+            playBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+
+                if (isPlaying) {
+                    icon.className = "fa-solid fa-pause text-sm text-mhTeal";
+                    createSynthBeat();
+                } else {
+                    icon.className = "fa-solid fa-play text-sm text-mhPink";
+                    clearInterval(timerId);
+                    eqBars.forEach(bar => bar.style.height = '4px');
+                }
+            });
+        }
+
+        function setupThemeToggle() {
+            const toggleBtn = document.getElementById('themeToggleBtn');
+            let isTealTheme = false;
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    isTealTheme = !isTealTheme;
+                    if (isTealTheme) {
+                        document.documentElement.style.setProperty('--accent-glow', '#00F5D4');
+                        toggleBtn.classList.add('text-mhTeal');
+                    } else {
+                        document.documentElement.style.setProperty('--accent-glow', '#E6007E');
+                        toggleBtn.classList.remove('text-mhTeal');
+                    }
+                });
+            }
+        }
+
+</script>
+</body>
+</html>
